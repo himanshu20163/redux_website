@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 
 function ProductPage() {
   const [products, setProducts] = useState([]);
@@ -24,11 +23,11 @@ function ProductPage() {
   }
   return (
     <div style={{display:"flex",width:"100%"}}>
-      <div style={{display:"flex",width:"60%",flexWrap:"wrap"}}>
+      <div style={{display:"flex",width:"70%",flexWrap:"wrap",height:"150px"}}>
       {products.map(product => (
         <div key={product.id} className="card">
           
-          <div className="card-body" >
+          <div className="card-body" style={{height:"30rem",width:"20rem",margin:"1rem"}}>
             <img src={product.image} alt={product.title} height="250px" width="250" />
             <h5 className="card-title">{product.title}</h5>
             <p className="card-text">{product.category}</p>
@@ -39,10 +38,10 @@ function ProductPage() {
       ))}
       </div>
       <hr />
-      <div>
-      <h2>Cart</h2>
+      <div style={{width:"30%"}}>
+      <h2>Add to cart item</h2>
       {cartItems.map(item => (
-        <div key={item.id} className="card">
+        <div key={item.id} className="card" >
           <img src={item.image} alt={item.title} height="100px" width="100px"/>
           <div className="card-body">
             <h5 className="card-title">{item.title}</h5>
