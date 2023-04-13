@@ -1,0 +1,10 @@
+.products_cards{
+    height: auto;
+    display: flex;
+    flex-wrap: wrap ;
+    padding: 5rem;
+}
+.products_single{
+    height:33%;
+    width: 33%;
+}

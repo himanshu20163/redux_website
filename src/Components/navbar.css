@@ -1,0 +1,16 @@
+.main_menu{
+    box-sizing: border-box;
+    height:10vh;
+    width: 100%;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu{
+    width:50%;
+    display: flex;
+}
+h1{
+    margin:0;
+}
