@@ -1,60 +1,51 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { useContext } from 'react';
+import { mycontext } from '../App';
+import "./products.css";
+const Products = ({carddata, setcarddata}) => {
 
-function ProductPage() {
-  const [products, setProducts] = useState([]);
-  const [cartItems, setCartItems] = useState([]);
+  const data = useContext(mycontext);
 
-  useEffect(() => {
-    api_data();
-  }, []);
+   const [prodata, setprodata] = useState([])
+    useEffect(() => {
+     dataopen()
+    }, [])
 
-  async function api_data(){
-      const data = await fetch('https://fakestoreapi.com/products');
-      const ans = await data.json();
-      setProducts(ans);
-  }
+    const dataopen =  async()=>{
+        const res = await fetch("https://fakestoreapi.com/products")
+        const data = await res.json()
+        setprodata(data)
+    } 
+     
+    const addfunc=(id)=>{
+        const realdata = prodata.find((elem,index)=>{
+            return id === index
+          })
+      setcarddata([...carddata,realdata])
+      data.count = data.count+1;
+      data.setcount(data.count);
+      
+      console.log();
+    }
 
-  const handleAddToCart = (product) => {
-    setCartItems(prevItems => [...prevItems, product]);
-  }
-
-  const handleRemoveFromCart = (id) => {
-    setCartItems(prevItems => prevItems.filter(item => item.id !== id));
-  }
   return (
-    <div style={{display:"flex",width:"100%"}}>
-      <div style={{display:"flex",width:"60%",flexWrap:"wrap"}}>
-      {products.map(product => (
-        <div key={product.id} className="card">
-          
-          <div className="card-body" >
-            <img src={product.image} alt={product.title} height="250px" width="250" />
-            <h5 className="card-title">{product.title}</h5>
-            <p className="card-text">{product.category}</p>
-            <p className="card-text">{product.price}</p>
-            <button className="btn btn-primary" onClick={() => handleAddToCart(product)}>Add to Cart</button>
-          </div>
-        </div>
-      ))}
-      </div>
-      <hr />
-      <div>
-      <h2>Cart</h2>
-      {cartItems.map(item => (
-        <div key={item.id} className="card">
-          <img src={item.image} alt={item.title} height="100px" width="100px"/>
-          <div className="card-body">
-            <h5 className="card-title">{item.title}</h5>
-            <p className="card-text">{item.category}</p>
-            <p className="card-text">{item.price}</p>
-            <button className="btn btn-danger" onClick={() => handleRemoveFromCart(item.id)}>Remove Item</button>
-          </div>
-        </div>
-      ))}
-      </div>
+    <>
+
+    <h1 style={{textAlign:"center"}}>Products</h1>
+    <div className='productcontainer'>
+        {prodata.map((ele,id)=>{
+       return <div className='cards'>
+                <img src={ele.image}></img>
+                <h3>{ele.category}</h3>
+                <h2>Price:{ele.price}</h2>
+                <div className='buttondiv'>
+                    <button onClick={()=>addfunc(id)}>Add To Cart</button>
+                </div>
+            </div>
+        })}
     </div>
-  );
+    </>
+  )
 }
 
-export default ProductPage;
+export default Products

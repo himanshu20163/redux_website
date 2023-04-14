@@ -1,0 +1,41 @@
+.addcards{
+    display: flex;
+    width: 95%;
+    box-shadow: 0 0 10px;
+    margin: 10px;
+
+}
+.mainboxcard{
+    margin-top: 50px;
+    margin-left: 40px;
+}
+.addcards img{
+width: 100px;
+height: 100px;
+padding: 20px;
+}
+.addcards button{
+
+position: relative;
+left: 50px;
+background-color: #2874F0;
+color: white;
+font-weight: 700;
+width: 150px;
+height: 30px;
+border: none;
+border-radius: 15px;
+}
+.pehla{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+}
+.dusra{
+    width: 60%;
+}
+.teesra{
+    width: 10%;
+    display: flex;
+    align-items: center;
+}

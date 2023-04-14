@@ -7,20 +7,26 @@ import Addtocart from './Components/Addtocart';
 import Pagenotfound from './Components/Pagenotfound';
 import Navbar from './Components/Navbar';
 import { useState } from 'react';
-// import Nav from './Components/Navbar/Nav';
+import { createContext } from 'react';
 
+export  const mycontext = createContext();
 function App() {
-  const [product,setproduct] = useState([]);
+  
+  const [carddata,setcarddata] = useState([]);
+  const [count ,setcount] = useState(0);
 
   return (
     <div className="App">
+      <mycontext.Provider value={{count,setcount}}>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />}/>
-        <Route path="/Products" element={<Products first={product} second={setproduct} />}/>
-        <Route path="/Addtocart" element={<Addtocart first={product} second={setproduct}/>}/>
+        <Route path="/Products" element={<Products carddata={carddata} setcarddata={setcarddata} />}/>
+        <Route path="/Addtocart" element={<Addtocart carddata={carddata} setcarddata={setcarddata}/>}/>
         <Route path="*" element={<Pagenotfound />}/>
       </Routes>
+      </mycontext.Provider>
+     
     </div>
   );
 }
