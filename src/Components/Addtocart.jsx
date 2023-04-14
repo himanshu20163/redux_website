@@ -3,7 +3,7 @@ import "./addcard.css"
 import { useContext } from 'react';
 import { mycontext } from '../App';
 
-const Add_To_Cart = ({carddata, setcarddata}) => {
+const Addtocart = ({carddata, setcarddata}) => {
   const data = useContext(mycontext);
     const removefunc = (id)=>{
        const newversersion = carddata.filter((ele,index)=>{
@@ -33,4 +33,4 @@ const Add_To_Cart = ({carddata, setcarddata}) => {
   )
 }
 
-export default Add_To_Cart
+export default Addtocart
