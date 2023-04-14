@@ -3,7 +3,7 @@ import "./addcard.css"
 import { useContext } from 'react';
 import { mycontext } from '../App';
 
-const Add_To_Cart = ({carddata, setcarddata}) => {
+const Addtocart = ({carddata, setcarddata}) => {
   const data = useContext(mycontext);
     const removefunc = (id)=>{
        const newversersion = carddata.filter((ele,index)=>{
@@ -15,7 +15,6 @@ const Add_To_Cart = ({carddata, setcarddata}) => {
     }
   return (
     <>
-
     {carddata.length > 0 ? <div className='mainboxcard'>
         {
             carddata.map((ele,id)=>{
@@ -30,9 +29,8 @@ const Add_To_Cart = ({carddata, setcarddata}) => {
             })
         }
     </div> : <h1 style={{color:"red" , textAlign:"center"}}>Your Cart is empty</h1>}
-    
     </>
   )
 }
 
-export default Add_To_Cart
+export default Addtocart
