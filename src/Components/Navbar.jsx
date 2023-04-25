@@ -13,6 +13,7 @@ const Navbar = () => {
         </div>
       <div className='menu'>
         <Link to="/" style={{width:"20%",textDecoration:"none"}}>Home</Link> 
+        <Link to="/love" style={{width:"20%",textDecoration:"none"}}>Love</Link> 
         <Link to="/Products" style={{width:"20%",textDecoration:"none"}}>Products</Link>
         <Link to="/Addtocart" style={{width:"20%",textDecoration:"none"}}>Add to cart</Link>
       </div>

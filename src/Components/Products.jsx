@@ -48,8 +48,5 @@ const Products = ({carddata, setcarddata}) => {
   )
 }
 
-<<<<<<< HEAD
 export default Products
-=======
-export default Products
->>>>>>> 5c7a4d1959a387b7b8202ebf1dfa72e47aa5d815
+
