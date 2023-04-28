@@ -9,7 +9,7 @@ const Mycards = () => {
 
   return (
     <div>
-      {console.log(reduxdata.Mycards)}
+      {/* {console.log(reduxdata.Mycards)} */}
     </div>
   )
 }
